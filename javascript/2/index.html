@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="good">happy hacking</h1>
+    <div>
+        <a id="a1" href="#">who said that</a>
+    </div>
+    <div>
+        <a id="a2" href="#">said what?</a> 
+    </div>
+
+    <script>
+        const text=document.querySelector('#good');
+        const anchor1=document.querySelector('#a1');
+        const anchor2=document.querySelector('#a2');
+
+        // anchor1.addEventListener('click',function(){
+        //     text.innerHTML="리처드 스톨먼";
+        // });
+        anchor1.addEventListener('click',() => {
+            text.innerHTML="리처드 스톨먼";
+        });
+        // anchor2.addEventListener('click',function(){
+        //     text.innerHTML="happy hacking";
+        // });
+        anchor2.addEventListener('click',() => {
+            text.innerHTML="happy hacking";
+        });
+    </script>
+</body>
+</html>
