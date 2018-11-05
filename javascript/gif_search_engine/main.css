@@ -1,8 +1,8 @@
 body{
-    width:80px;
-    max-width: 124px;
+    width:80%;
+    max-width: 1024px;
     margin: 0 auto;
-    background: black;
+    /* background: black; */
 }
 
 h1{

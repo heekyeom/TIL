@@ -6,14 +6,17 @@
     <title>gifpy search engine</title>
 </head>
 <body>
+    <!-- 검색 창 -->
     <div class="container container-padding50">
-        <input type="text" class="container-textinput">
-        <button class="container-button">search</button>
+        <input type="text" id="js-input" class="container-textinput">
+        <button id="js-button" class="container-button">search</button>
     </div>
-    <div class="container container-padding50">
+
+    <!-- 결과 창 -->
+    <div id="result-area" class="container container-padding50">
 
     </div>
-    <script src = "./main.js"></script>>
+    <script src = "./main.js"></script>
     <script>
         // function sum(a,b){
         //     return a+b;
@@ -21,13 +24,13 @@
         // const sum=function(a,b){return a+b};
 
         // const sum=(a,b) => {return a+b};// ES6
-        const sum=(a,b) => a+b;// ES6 1-line
+        // const sum=(a,b) => a+b;// ES6 1-line
         
-        const howManyLettery=(str) => str.length;
+        // const howManyLettery=(str) => str.length;
         //const howManyLettery= str => str.length; parameter가 1개면 () 안써도됨.
 
-        document.write(sum(1,2));
-        document.write(howManyLettery('strtstr'));
+        // document.write(sum(1,2));
+        // document.write(howManyLettery('strtstr'));
 
     </script>
 </body>
