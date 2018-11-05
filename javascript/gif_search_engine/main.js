@@ -35,9 +35,14 @@ GiphyAjaxCall.addEventListener('load',(e) => {    //load가 완료 되었을 때
 
 // 3. gif 파일들은 index.html에 밀어 넣는다.
 const pushToDOM=parsedData => {
-    // console.log(parsedData.data[0].images.fixed_height.url);
     const resultArea=document.querySelector('#result-area');
-    let imgUrl=parsedData.data[0].images.fixed_height.url;
-    console.log(imgUrl);
-    resultArea.innerHTML=`<img src="${imgUrl}" alt="dog"/>`;
+    const dataSet=parsedData.data;
+    dataSet.forEach(imgData => {
+        let imgUrl=imgData.images.fixed_height.url;
+        let imgTitle=imgData.title;
+        resultArea.innerHTML+=`<img src="${imgUrl}" alt="${imgTitle}"/>`;
+    });
+   
+    // let imgUrl=parsedData.data[0].images.fixed_height.url;
+    // resultArea.innerHTML=`<img src="${imgUrl}" alt="dog"/>`;
 }
