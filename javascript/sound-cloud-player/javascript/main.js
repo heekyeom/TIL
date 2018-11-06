@@ -33,7 +33,6 @@ UI.setInputArea();
 UI.setSearchButton();
 UI.setResetButton();
 UI.setPlaylist();
-
 const search = () => {
   let keyword = searchText.value;
   SoundCloudAPI.getTracks(keyword);
