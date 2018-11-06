@@ -10,17 +10,15 @@
 <body id="soundcloud-player">
 
 <div class="ui container col">
-    <div class="col-left js-playlist">
-        <div class="inner">
-            <!--Playstack-->
-        </div>
+    <div id="js-playlist" class="col-left">
+        <div class="inner"></div>
     </div>
     <div class="col-right">
         <div class="main">
 
             <div class="ui massive icon input">
-                <input type="text" placeholder="Search for a song or artist..." class="js-search input-search">
-                <i class="search icon js-submit"></i>
+                <input type="text" id="js-search" placeholder="Search for a song or artist..." class="js-search input-search">
+                <i id="js-search-button" class="search icon js-submit"></i>
             </div>
 
             <div id="js-search-results" class="search-results ui cards">
@@ -29,6 +27,7 @@
         </div>
     </div>
 </div>
+
 <!-- Sound Cloud SDK js 추가-->
 <script src="https://connect.soundcloud.com/sdk/sdk-3.3.0.js"></script>
 <script src='javascript/semantic.min.js'></script>
