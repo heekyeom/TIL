@@ -143,7 +143,7 @@ app.delete('/api/movies/:id',(req,res)=>{
 
     if(movie) res.status(404).send(`${req.params.id}는 없는 것..`)
     const deleteIndex=movies.indexOf(movie);
-    movies.slice(deleteIndex,1);
+    movies.splice(deleteIndex,1);
     res.send(movies);
 })
 
@@ -152,7 +152,7 @@ function validateMovie(movie){
     const schema={
         title: Joi.string().min(2).required(),
     }
-    return Joi.validate(movie, schema);
+    return Joi.validate(movie, schema); 
 }
 function getMovie(movies, id){
     const movie=movies.find((movie)=>{

@@ -1,0 +1,8 @@
+{
+  "users": [
+    { "id": 1, "name": "임나영", "email": "im@im.com", "age": 21 },
+    { "id": 2, "name": "김소혜", "email": "so@so.com", "age": 20 },
+    { "id": 3, "name": "조보아", "email": "cho@cho.com", "age": 29 },
+    { "id": 4, "name": "지우", "email": "jioo@jioo.com", "age": 29 }
+  ]
+}
