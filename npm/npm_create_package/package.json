@@ -1,0 +1,12 @@
+{
+  "name": "heek",
+  "version": "1.0.0",
+  "description": "heek is package for test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
