@@ -1,5 +1,6 @@
 const express =require('express');
 const app=express();
+app.use(express.json()); //Json문자열이 오면 알아서 파싱.
 
 const movies=[
     { id: 1, title: 'matrix'},
@@ -33,7 +34,7 @@ app.get('/api/movies/:id',(req,res)=>{
         return movie.id === parseInt(req.params.id);
         // return movie.id == req.params.id;
     });
-    
+
     if(!movie){
         res.status(404).send(`${req.params.id}에 해당하는 영화를 찾을 수 없습니다.`);
     }
@@ -41,9 +42,15 @@ app.get('/api/movies/:id',(req,res)=>{
 })
 
 
-/* ex POSt /api/movies/1 */
-app.post('/api/movies/aaa',(req,res)=>{
-    
+/* ex POSt /api/movies */
+app.post('/api/movies',(req,res)=>{
+    const movie={
+        id: movies.length+1,
+        title: req.body.title,
+    };
+
+    movies.push(movie);
+    res.send(movie);
 })
 
 
