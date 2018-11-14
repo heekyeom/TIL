@@ -17,10 +17,23 @@ mongoose
  * mongoDB는 자체적으로 필터 기능이 없다. 그냥 종이다. 들어오는 값 다 입력한다.
  * 필터를 해주는 것은 mongoose라는 것이다.
  */
+/**
+ * String : minlength, maxlength
+ */
 const courseSchema = new mongoose.Schema({
-  name: String,
+  name: { type: String, required: true },
   author: String,
-  tags: [String],
+  tags: {
+    type: Array,
+    //custom validate
+    validate:{
+      validator: function(tags){
+        const result = tags.every(tag=>tag.length>0);
+        return tags && tags.length>0 && result;
+      },
+      message:'A course should have at least 1'
+    }
+  },
   date: { type: Date, default: Date.now },
   isPublished: Boolean
 });
@@ -37,14 +50,16 @@ const course = new Course({
 // .then(result=>console.log(result))
 // .catch(error=>console.error(error));
 
+// create
 async function createCourse() {
   const course = new Course({
-    name: "실전 dapp 빌드",
-    author: "hee",
-    tags: ["Ethereum", "Blockchain", "DApp"],
+    name: "a",
+    author: "kim",
+    tags: ["ES6", "javascript", "DApp"],
     isPublished: true
   });
   try {
+    // const result=await course.validate();
     const result = await course.save();
     console.log(result);
   } catch (error) {
@@ -52,6 +67,9 @@ async function createCourse() {
   }
 }
 
+createCourse();
+
+// read
 async function getCourses(){
     const courses = await Course
     //.find({ price : { $lt15, $gt10 }})   price가 10을 초과 15미만하는 것만.
@@ -84,4 +102,38 @@ async function getCourses(){
   * Course.find().or({author:'neo'},{isPublished: false}) 
   */
 
-getCourses();
+// getCourses();
+
+// update
+// 1. Query Fist : find => change => save
+async function updateCourse(id){
+  const course=await Course.findById(id);
+  if(!course) return;
+
+  course.author='kyeom';
+  course.tags=['hello'];
+
+  const result=await course.save();
+  console.log(result);
+}
+
+// updateCourse('5bea63884e4e20203c315bfe');
+// 2. update First : 직접  update => result
+async function updateCourses(id){
+  const result= await Course.updateMany({isPublished: true},{
+    $set:{
+      author:'멀캠'
+    }
+  },{new: true});
+
+  console.log(result);
+}
+// updateCourses('5bea693e9cbbb1228cfac938');
+
+//Destroy
+async function removeCourse(id){
+  const result=await Course.deleteOne({_id: id});
+  console.log(result);
+}
+
+// removeCourse('5bea693e9cbbb1228cfac938');
