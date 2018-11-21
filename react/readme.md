@@ -45,3 +45,4 @@ lat: null/ errorMessage:'' => loading... 보여줌.
    화면에서 사라질때까지 기다리는중.
 
 6. componentWillUnmount (define)
+
